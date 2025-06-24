@@ -1,0 +1,100 @@
+Absolutely! Here's a clear and logical step-by-step guide for users to follow in Azure Data Factory to build a pipeline that **filters high-end customers** (where `TotalAmount > 1000`) from a CSV in one container and moves the filtered data to another container.
+
+---
+
+## 🧭 Logical Steps to Create the ADF Pipeline for High-End Customer Filter
+
+### 🪜 **Step 1: Set Up Azure Blob Storage**
+
+1. **Upload your source file** (e.g., `sales_data.csv`) to a container named `sales-data`.
+2. **Create a destination container** named `high-end-customers` (if it doesn’t exist).
+
+---
+
+### 🪜 **Step 2: Create the ADF Pipeline**
+
+1. **Go to Azure Data Factory Studio**
+
+   * Open your Azure Data Factory instance.
+   * Click on **Author & Monitor** to launch the ADF studio.
+
+---
+
+### 🪜 **Step 3: Create Linked Services**
+
+1. In **Manage** (gear icon on the left):
+
+   * Add a **Linked Service** to your Azure Blob Storage.
+
+---
+
+### 🪜 **Step 4: Create Datasets**
+
+1. **Source Dataset** (DelimitedText):
+
+   * Linked to `sales-data` container.
+   * Point to `sales_data.csv`.
+   * Ensure first row is header and columns like `TotalAmount` are correctly mapped.
+
+2. **Sink Dataset** (DelimitedText):
+
+   * Linked to `high-end-customers` container.
+   * Output file: `high_value_customers.csv`.
+
+---
+
+### 🪜 **Step 5: Create a Data Flow**
+
+1. Go to the **Data Flows** section and create a new one.
+
+2. Add a **Source**:
+
+   * Connect to your source dataset (`sales_data.csv`).
+   * Import schema.
+
+3. Add a **Derived Column** (if `TotalAmount` is a string):
+
+   * Name: `totalAmountInt`
+   * Expression:
+
+     ```sql
+     toInteger(TotalAmount)
+     ```
+
+4. Add a **Filter** transformation:
+
+   * Expression builder:
+
+     ```
+     tointeger(totalAmountInt) > 1000
+     ```
+
+5. Add a **Sink**:
+
+   * Connect to the output dataset (`high_value_customers.csv`).
+   * Set sink type as "Single file" or "Output to folder" as needed.
+
+---
+
+### 🪜 **Step 6: Create a Pipeline and Add the Data Flow**
+
+1. Create a new pipeline.
+2. Drag and drop the **Data Flow activity**.
+3. Select the Data Flow you just created.
+4. Debug to test it.
+
+---
+
+### 🪜 **Step 7: Trigger the Pipeline**
+
+* You can **manually trigger**, schedule it, or use event-based triggers (e.g., when a file lands in `sales-data`).
+
+---
+
+### ✅ Output
+
+A new file `high_value_customers.csv` is generated in the `high-end-customers` container with only the customers whose `TotalAmount > 1000`.
+
+---
+
+Would you like this packaged into a Markdown file or added to your GitHub README as a "Setup Instructions" section?
