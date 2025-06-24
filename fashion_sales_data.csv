@@ -1,0 +1,11 @@
+﻿OrderID,CustomerID,CustomerName,OrderDate,Product,Category,Quantity,UnitPrice,TotalAmount
+F1001,C001,Sophia Lane,1/5/2025,Leather Jacket,Outerwear,1,850,850
+F1002,C002,James Rivera,1/6/2025,Designer Handbag,Accessories,1,1200,1200
+F1003,C003,Lila Chen,1/7/2025,Silk Dress,Dresses,2,500,1000
+F1004,C004,David Ortiz,1/10/2025,Luxury Watch,Accessories,1,2200,2200
+F1005,C001,Sophia Lane,1/12/2025,High Heels,Shoes,2,450,900
+F1006,C005,Olivia White,1/13/2025,Cashmere Sweater,Tops,1,600,600
+F1007,C006,Noah Patel,1/14/2025,Luxury Sunglasses,Accessories,2,300,600
+F1008,C002,James Rivera,1/15/2025,Evening Gown,Dresses,1,1800,1800
+F1009,C003,Lila Chen,1/16/2025,Designer Belt,Accessories,1,400,400
+F1010,C004,David Ortiz,1/17/2025,Italian Shoes,Shoes,1,950,950
