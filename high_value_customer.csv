@@ -1,0 +1,4 @@
+OrderID,CustomerID,CustomerName,OrderDate,Product,Category,Quantity,UnitPrice,TotalAmount
+F1002,C002,James Rivera,1/6/2025,Designer Handbag,Accessories,1,1200,1200
+F1004,C004,David Ortiz,1/10/2025,Luxury Watch,Accessories,1,2200,2200
+F1008,C002,James Rivera,1/15/2025,Evening Gown,Dresses,1,1800,1800
